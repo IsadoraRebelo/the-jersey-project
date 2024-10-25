@@ -21,7 +21,7 @@ export const RegisterWrapper = ({ children, title, subTitle }: props) => {
           },
         }}
       />
-      <div className="flex h-full w-full items-center justify-center bg-bgSecondary">
+      <div className="flex h-full w-full items-center justify-center bg-primaryForeground">
         <div className="h-fit w-[60%]">
           <h1 className="text-primary40 mb-0 text-3xl">{title}</h1>
           <h2 className="text-primary mb-5 mt-1 text-sm">{subTitle}</h2>
