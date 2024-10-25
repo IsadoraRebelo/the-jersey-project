@@ -1,7 +1,7 @@
 'use server';
 import { createClient } from '@/supabase/server';
 
-import { CreateUserInput, signupFormSchema } from '@/schemas/forms/auth';
+import { CreateUserInput, signupFormSchema } from '@/types/forms/auth';
 
 export async function signUpWithEmailAndPassword({
   data,

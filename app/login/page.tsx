@@ -1,4 +1,4 @@
-import { RegisterWrapper } from '@/lib/components/register-wrapper';
+import { RegisterWrapper } from '@/components/register-wrapper';
 import React from 'react';
 
 import { LoginForm } from './login-form';

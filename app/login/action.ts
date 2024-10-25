@@ -2,7 +2,7 @@
 
 import { createClient } from '@/supabase/server';
 
-import { LoginUserInput, loginFormSchema } from '@/schemas/forms/auth';
+import { LoginUserInput, loginFormSchema } from '@/types/forms/auth';
 
 export async function loginWithEmailAndPassword({
   data,

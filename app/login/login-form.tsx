@@ -6,7 +6,7 @@ import { useTransition } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
-import { LoginUserInput, loginFormSchema } from '@/schemas/forms/auth';
+import { LoginUserInput, loginFormSchema } from '@/types/forms/auth';
 
 import { Button } from '@/components/ui/button';
 import {
