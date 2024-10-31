@@ -12,13 +12,13 @@ export async function signUpWithEmailAndPassword({
   const parsed = signupFormSchema.safeParse(data);
 
   if (!parsed.success) {
-    return JSON.stringify({ error: 'Invalid form data' });
+    return { error: 'Invalid form data' };
   } else if (data.invite_code !== '1234') {
-    return JSON.stringify({ error: 'You need an invite code to register' });
+    return { error: 'You need an invite code to register' };
   }
   try {
     const supabase = createClient();
-    const result = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email: data.email,
       password: data.password,
       options: {
@@ -27,9 +27,9 @@ export async function signUpWithEmailAndPassword({
         },
       },
     });
-    return JSON.stringify(result);
+    return { error: error?.message };
   } catch (error) {
     console.error('Error during sign up:', error);
-    return JSON.stringify({ error: 'Unexpected error occurred' });
+    throw new Error('Unexpected error occurred');
   }
 }

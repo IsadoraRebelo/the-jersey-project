@@ -37,28 +37,15 @@ export const SignUpForm = () => {
 
   const onSubmitHandler: SubmitHandler<CreateUserInput> = (values) => {
     startTransition(async () => {
-      const result = await signUpWithEmailAndPassword({
+      const { error } = await signUpWithEmailAndPassword({
         data: values,
       });
-      const { error } = JSON.parse(result);
+
       if (error) {
-        if (error.code) {
-          if (error.code === 'user_already_exists') {
-            toast.error('Email already registered');
-            return;
-          } else if (error.code === 'unexpected_failure') {
-            toast.error('Username already registered');
-            return;
-          }
-        } else if (error) {
-          toast.error(error);
-          return;
-        }
-        console.log('error', error);
-        toast.error('Signup failed');
+        toast.error(error);
         return;
       }
-      toast.success('registered successfully');
+      toast.success('Registered successfully');
       router.push('/');
       router.refresh();
     });
