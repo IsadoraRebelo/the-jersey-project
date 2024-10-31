@@ -18,7 +18,7 @@ export async function uploadImage({
       return { error: 'File is missing' };
     }
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const fileExt = file.name.split('.').pop();
     const filePath = `jersey-${jerseyId}.${fileExt}`;

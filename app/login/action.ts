@@ -16,7 +16,7 @@ export async function loginWithEmailAndPassword({
     return JSON.stringify({ error: 'Invalid form data' });
   }
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const result = await supabase.auth.signInWithPassword({
       email: data.email,
       password: data.password,

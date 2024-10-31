@@ -17,7 +17,7 @@ export async function signUpWithEmailAndPassword({
     return { error: 'You need an invite code to register' };
   }
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { error } = await supabase.auth.signUp({
       email: data.email,
       password: data.password,
